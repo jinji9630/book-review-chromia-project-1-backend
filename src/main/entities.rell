@@ -1,0 +1,40 @@
+entity book {
+    key isbn: text;
+    mutable title: text;
+    author: text;
+}
+
+entity book_review {
+  index book: book;
+  reviewer_name: text;
+  review: text;
+  rating: integer;
+}
+
+
+struct book_review_dto {
+  book: struct<book>;
+  reviewer_name: text;
+  review: text;
+  rating: integer;
+}
+
+struct module_args {
+  admin_pubkey: byte_array;
+}
+
+struct tx_op {
+  op_name: text;
+  op_args: list<gtv>;
+}
+
+struct tx_body {
+  tx_rid: byte_array;
+  ops: list<tx_op>;
+  signers: list<byte_array>;
+}
+
+struct tx {
+  tx_body;
+  signatures: list<byte_array>;
+}

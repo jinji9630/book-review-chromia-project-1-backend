@@ -1,0 +1,2 @@
+chr tx --await create_book "ISBN1234" "'1984'" "George Orwell"
+chr tx --await create_book_review "ISBN1234" "Alice" "It was a great book" 5
